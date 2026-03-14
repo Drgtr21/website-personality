@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Portfolio</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* LOGIN */
+.login{
+position:fixed;
+inset:0;
+background:linear-gradient(135deg,#141e30,#243b55);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+.login input{
+padding:10px;
+border:none;
+border-radius:8px;
+margin:10px 0;
+}
+
+.login button{
+padding:8px 20px;
+border:none;
+border-radius:8px;
+background:#00f5ff;
+cursor:pointer;
+}
+
+/* WEBSITE */
+.container{
+display:none;
+min-height:100vh;
+display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:230px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+padding:40px;
+}
+
+.sidebar h3{margin-bottom:20px}
+
+.sidebar a{
+display:block;
+margin:15px 0;
+color:white;
+text-decoration:none;
+cursor:pointer;
+}
+
+.sidebar a:hover{color:#00f5ff}
+
+/* MAIN */
+.main{
+flex:1;
+padding:60px;
+}
+
+.section{display:none}
+.section.active{display:block}
+
+/* HOME BOX */
+.box{
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:20px;
+max-width:700px;
+}
+
+/* FOTO */
+.photo{
+width:250px;
+height:250px;
+margin:30px auto;
+padding:8px;
+border-radius:25px;
+background:linear-gradient(135deg,#ff5100,#a200ff);
+box-shadow:0 0 30px #ff5100,0 0 60px #a200ff;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:18px;
+}
+
+/* ABOUT */
+.about-card{
+background:linear-gradient(135deg,#00f5ff30,#ff00c830);
+padding:30px;
+border-radius:20px;
+max-width:700px;
+box-shadow:0 0 30px rgba(0,255,255,0.3);
+}
+
+.quote{
+margin-top:20px;
+padding:15px;
+background:rgba(255,255,255,0.15);
+border-radius:12px;
+font-style:italic;
+color:#ffd369;
+text-align:center
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="login" id="login">
+<h2>Enter Your Name</h2>
+<input type="text" id="nama">
+<button onclick="masuk()">Enter</button>
+</div>
+
+<!-- WEBSITE -->
+<div class="container" id="website">
+
+<div class="sidebar">
+<h3>Introduce</h3>
+<a onclick="show('home')">Home</a>
+<a onclick="show('about')">About</a>
+</div>
+
+<div class="main">
+
+<!-- HOME -->
+<div id="home" class="section active">
+<div class="box">
+<h1>Haloo 👋<br>Saya Fikri Asshidiqi</h1>
+<p>Saya berasal dari Lampung Selatan.</p>
+
+<div class="photo">
+<img src="WhatsApp Image 2026-03-14 at 19.20.50.jpeg">
+</div>
+
+<marquee behavior="scroll" direction="left">
+    Selamat datang di website saya!
+</marquee>
+
+</div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+<div class="about-card">
+<h2>About Me</h2>
+<p>Halo semuanya! Saya remaja biasa yang sedang berusaha mempelajari hal-hal baru dan beradaptasi dalam kebiasaan baik.</p>
+
+<p>🎂 Tanggal Lahir: 10 Agustus 2008</p>
+<p>🎮 Hobi: Main game</p>
+<p>🎓 Kuliah Impian: ITERA</p>
+
+<div class="quote">
+"KEEP NEVER TIRED LEARNING."
+</div>
+
+</div>
+
+</body>
+
+</div>
+</div>
+
+<script>
+function masuk(){
+let n=document.getElementById("nama").value;
+if(n=="") return alert("Isi nama dulu 😊");
+document.getElementById("login").style.display="none";
+document.getElementById("website").style.display="flex";
+}
+
+function show(id){
+document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function changeFrame(c1,c2){
+document.querySelector(".photo").style.background=
+"linear-gradient(135deg,"+c1+","+c2+")";
+}
+</script>
+
+</body>
+</html>
